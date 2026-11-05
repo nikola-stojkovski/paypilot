@@ -1,0 +1,29 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
+    <File Path="nuget.config" />
+    <File Path="README.md" />
+    <File Path="docs/adr/0001-solution-structure.md" />
+  </Folder>
+  <Folder Name="/Application/">
+    <Project Path="src/Application/PayPilot.Application/PayPilot.Application.csproj" />
+  </Folder>
+  <Folder Name="/Aspire/">
+    <Project Path="src/Aspire/PayPilot.AppHost/PayPilot.AppHost.csproj" />
+    <Project Path="src/Aspire/PayPilot.ServiceDefaults/PayPilot.ServiceDefaults.csproj" />
+  </Folder>
+  <Folder Name="/Domain/">
+    <Project Path="src/Domain/PayPilot.Domain/PayPilot.Domain.csproj" />
+  </Folder>
+  <Folder Name="/Infrastructure/">
+    <Project Path="src/Infrastructure/PayPilot.Infrastructure.Ai/PayPilot.Infrastructure.Ai.csproj" />
+    <Project Path="src/Infrastructure/PayPilot.Infrastructure.Persistence/PayPilot.Infrastructure.Persistence.csproj" />
+  </Folder>
+  <Folder Name="/Presentation/">
+    <Project Path="src/Presentation/PayPilot.Api/PayPilot.Api.csproj" />
+  </Folder>
+  <Folder Name="/Tests/">
+    <Project Path="tests/PayPilot.Domain.Tests/PayPilot.Domain.Tests.csproj" />
+  </Folder>
+</Solution>

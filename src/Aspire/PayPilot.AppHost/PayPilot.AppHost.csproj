@@ -1,0 +1,13 @@
+<Project Sdk="Aspire.AppHost.Sdk/13.6.4">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <!-- The Aspire SDK adds its own package references; keep it outside central package management -->
+    <ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
+    <AspireUseCliBundle>true</AspireUseCliBundle>
+    <UserSecretsId>9433fc1a-5d3b-46a8-b670-e689c5af78c9</UserSecretsId>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Presentation\PayPilot.Api\PayPilot.Api.csproj" />
+  </ItemGroup>
+</Project>
