@@ -7,6 +7,11 @@
     <AspireUseCliBundle>true</AspireUseCliBundle>
     <UserSecretsId>9433fc1a-5d3b-46a8-b670-e689c5af78c9</UserSecretsId>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.JavaScript" Version="13.6.4" />
+    <PackageReference Include="Aspire.Hosting.PostgreSQL" Version="13.6.4" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Presentation\PayPilot.Api\PayPilot.Api.csproj" />
   </ItemGroup>
