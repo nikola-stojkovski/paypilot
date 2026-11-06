@@ -1,6 +1,41 @@
+# Requests for PayPilot.Api.
+# When running through the Aspire AppHost, the Api uses the ports from launchSettings.json
+# (http://localhost:5115, https://localhost:7155). If the dashboard shows a different URL, update it here.
 @PayPilot.Api_HostAddress = http://localhost:5115
 
-GET {{PayPilot.Api_HostAddress}}/weatherforecast/
-Accept: application/json
+### Health check (from ServiceDefaults)
+GET {{PayPilot.Api_HostAddress}}/health
 
-###
+### Chat: streamed answer (Server-Sent Events)
+POST {{PayPilot.Api_HostAddress}}/chat
+Content-Type: application/json
+Accept: text/event-stream
+
+{
+  "message": "What is the difference between gross and net pay?"
+}
+
+### Chat: a payroll question
+POST {{PayPilot.Api_HostAddress}}/chat
+Content-Type: application/json
+Accept: text/event-stream
+
+{
+  "message": "Explain in two sentences why net pay can differ from month to month."
+}
+
+### Chat: off-topic (see how the system prompt handles it)
+POST {{PayPilot.Api_HostAddress}}/chat
+Content-Type: application/json
+Accept: text/event-stream
+
+{
+  "message": "What is the capital of France?"
+}
+
+### Chat: invalid request (missing message) - expect 400
+POST {{PayPilot.Api_HostAddress}}/chat
+Content-Type: application/json
+
+{
+}

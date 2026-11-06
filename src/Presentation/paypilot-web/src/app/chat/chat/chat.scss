@@ -1,0 +1,24 @@
+.chat {
+  max-width: 720px;
+  margin: 2rem auto;
+  font-family: system-ui, sans-serif;
+}
+
+.ask {
+  display: flex;
+  gap: 0.5rem;
+
+  textarea { flex: 1; padding: 0.5rem; font: inherit; }
+  button { padding: 0 1.25rem; }
+}
+
+.answer {
+  margin-top: 1.5rem;
+  white-space: pre-wrap;   // keep the model's line breaks
+  line-height: 1.5;
+}
+
+.cursor { animation: blink 1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+
+.error { color: #b00020; }

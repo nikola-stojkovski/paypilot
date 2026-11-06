@@ -1,0 +1,27 @@
+<main class="chat">
+  <h1>PayPilot</h1>
+
+  <div class="ask">
+    <textarea
+      rows="3"
+      placeholder="Ask a payroll question..."
+      [value]="question()"
+      (input)="question.set($any($event.target).value)"
+      (keydown.enter)="$event.preventDefault(); send()"
+      [disabled]="loading()"></textarea>
+
+    @if (loading()) {
+      <button type="button" (click)="stop()">Stop</button>
+    } @else {
+      <button type="button" (click)="send()" [disabled]="!question().trim()">Send</button>
+    }
+  </div>
+
+  @if (error()) {
+    <p class="error">{{ error() }}</p>
+  }
+
+  @if (answer() || loading()) {
+    <section class="answer">{{ answer() }}@if (loading()) {<span class="cursor">▍</span>}</section>
+  }
+</main>

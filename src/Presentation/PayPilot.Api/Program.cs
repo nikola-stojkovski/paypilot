@@ -1,8 +1,13 @@
+using PayPilot.Infrastructure.Ai;
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Aspire shared defaults: OpenTelemetry, health checks, service discovery, resilience
 builder.AddServiceDefaults();
+builder.AddPayPilotAi();
 
+builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
@@ -17,6 +22,6 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapGet("/", () => "PayPilot API");
+app.MapControllers();
 
 app.Run();
