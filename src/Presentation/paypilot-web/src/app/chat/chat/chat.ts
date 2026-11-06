@@ -23,7 +23,7 @@ export class Chat {
     inject(DestroyRef).onDestroy(() => this.subscription?.unsubscribe());
   }
 
-    protected send(): void {
+  protected send(): void {
     const message = this.question().trim();
     if (!message || this.loading()) return;
 
@@ -32,8 +32,8 @@ export class Chat {
     this.loading.set(true);
 
     this.subscription = this.chatService.ask(message).subscribe({
-      next: piece => this.answer.update(current => current + piece),
-      error: err => {
+      next: (piece) => this.answer.update((current) => current + piece),
+      error: (err) => {
         this.error.set(err instanceof Error ? err.message : String(err));
         this.loading.set(false);
       },
@@ -46,5 +46,4 @@ export class Chat {
     this.subscription?.unsubscribe();
     this.loading.set(false);
   }
-
 }

@@ -8,7 +8,8 @@
       [value]="question()"
       (input)="question.set($any($event.target).value)"
       (keydown.enter)="$event.preventDefault(); send()"
-      [disabled]="loading()"></textarea>
+      [disabled]="loading()"
+    ></textarea>
 
     @if (loading()) {
       <button type="button" (click)="stop()">Stop</button>
@@ -22,6 +23,11 @@
   }
 
   @if (answer() || loading()) {
-    <section class="answer">{{ answer() }}@if (loading()) {<span class="cursor">▍</span>}</section>
+    <section class="answer">
+      {{ answer() }}
+      @if (loading()) {
+        <span class="cursor">▍</span>
+      }
+    </section>
   }
 </main>
