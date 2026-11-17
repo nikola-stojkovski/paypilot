@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.AI;
+using PayPilot.Infrastructure.Ai.Prompts;
 using System.Runtime.CompilerServices;
 
 namespace PayPilot.Api.Controllers;
@@ -8,7 +9,7 @@ namespace PayPilot.Api.Controllers;
 [Route("chat")]
 public class ChatController : ControllerBase
 {
-    private const string SystemPrompt = "/no_think\nYou are PayPilot, a payroll assistant. Answer briefly.";
+    private static readonly string SystemPrompt = PromptLibrary.Get("chat-system");
     private readonly IChatClient _chatClient;
 
     public ChatController(IChatClient chatClient)

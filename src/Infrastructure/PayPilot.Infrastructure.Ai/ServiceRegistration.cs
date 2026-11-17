@@ -10,6 +10,7 @@ public static class ServiceRegistration
     {
         builder.AddOllamaApiClient("chat")
             .AddChatClient()
+            .ConfigureOptions(options => options.Temperature ??= 0f)
             .UseOpenTelemetry(configure: c =>
                 c.EnableSensitiveData = builder.Environment.IsDevelopment());
 
